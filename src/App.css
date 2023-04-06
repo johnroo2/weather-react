@@ -10,6 +10,7 @@
 
 html {
   font-size: 100%;
+  overflow: hidden;
 }
 
 p{
@@ -39,13 +40,13 @@ p{
 }
 
 .para-white { 
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
   flex:1
 }
 
 .para-blue{
-  font-size: 1.2em;
+  font-size: 1em;
   color: #99CCE9;
   flex:1;
 }
@@ -58,7 +59,7 @@ p{
 .weather-main{
   font-size: 7em;
   color: #99CCE9;
-  font-weight:bolder;
+  font-weight: bolder;
   flex:14;
 }
 
@@ -67,6 +68,7 @@ p{
   color: white;
   flex:9;
   margin-bottom: 2%;
+  font-weight: bolder;
 }
 
 .weather-center{
@@ -74,6 +76,7 @@ p{
   align-items:flex-end;
   flex-direction:row;
   width:425px;
+  height: 25vh;
 }
 
 .weather-img{
