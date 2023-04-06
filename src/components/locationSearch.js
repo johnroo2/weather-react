@@ -31,86 +31,80 @@ export default function LocationSearch({setWeather}){
     }
 
     return(
-        <div className="top-container">
-            <div className="top-subcontainer">
-                <TextField
-                shrink="false"
-                id="outlined-basic"
-                variant="standard"
-                inputRef={valueRef}
+      <div className="top-container">
+        <div className="top-subcontainer">
+          <TextField
+          shrink="false"
+          id="outlined-basic"
+          variant="standard"
+          inputRef={valueRef}
+          onKeyDown={(ev) => {
+            if (ev.key === 'Enter') {
+              sendValue();
+              ev.preventDefault();
+            }
+          }}
+          InputLabelProps={{
+            style: { color: "white", fontFamily: "Jost", fontWeight: "lighter"},
+          }}
+          inputProps={{
+            style: { color: "#99CCE9", fontFamily: "Jost", fontWeight: "lighter"},
+            classes: {
+              root: 'MuiInputBase-root',
+              input: 'MuiInput-root',
+            },
+          }}
+          sx={{ 
+            minWidth:"28%",
+            minHeight:"50px",
+            maxWidth:"28%",
+            maxHeight:"50px",
+            marginTop:"2vh",
+            '& .MuiInput-underline:before': {
+              borderBottomColor: 'white',
+            },
+            '& .MuiInput-underline:after': {
+              borderBottomColor: '#99CCE9', 
+            },
+            '&:hover .MuiInputBase-root.MuiInput-root:before': {
+              borderBottomColor: 'white',
+            },
+            '& .MuiInputBase-root.Mui-focused:not(.Mui-disabled):before': {
+              borderBottomColor: 'white',
+            },
+            '& .MuiInputBase-root:hover:not(.Mui-disabled):before': {
+              borderBottomColor: 'white',
+            },
+          }}
+          label="search a location..."
+        />
 
-                onKeyDown={(ev) => {
-                  if (ev.key === 'Enter') {
-                    sendValue();
-                    ev.preventDefault();
-                  }
-                }}
+        <Button
+        onClick={sendValue}
 
-                InputLabelProps={{
-                    style: { color: "white", fontFamily: "Jost", fontWeight: "lighter"},
-                    }}
-                inputProps={{
-                    style: { color: "#99CCE9", fontFamily: "Jost", fontWeight: "lighter"},
-                    }}
-                sx = {{
-                    minWidth:"28%",
-                    minHeight:"50px",
-                    maxWidth:"28%",
-                    maxHeight:"50px",
+        variant="contained"
+        size="small"
 
-                    marginTop:"2vh",
-                    
-                    "& .MuiOutlinedInput-root": {
-                        "& > fieldset": {
-                            borderColor: "white",
-                    },
-                    
-                    "&.Mui-focused fieldset": {
-                      "& > fieldset": {
-                        color: "white",
-                      }
-                    }   
+        startIcon={<img src={require("./../imgs/searchIcon.png")} 
+        style={{width:"25px",
+            height:"25px",
+            marginLeft:"12px"}}
+        alt="search"/>}
 
-                    },
-                    "& .MuiOutlinedInput-root:hover": {
-                        "& > fieldset": {
-                        borderColor: "white",
-                        }
-                    },
-                    input:{color:"white"},
-                    label:{color:"white"}
-                }}
-                label="search a location...">
-                </TextField>
+        sx={{backgroundColor:"#99CCE9", 
 
-                <Button
-                onClick={sendValue}
+        width: "5%",
+        height: "50%",
 
-                variant="contained"
-                size="small"
+        marginTop:"3vh",
 
-                startIcon={<img src={require("./../imgs/searchIcon.png")} 
-                style={{width:"25px",
-                    height:"25px",
-                    marginLeft:"12px"}}
-                alt="search"/>}
+        '&:hover': {
+          backgroundColor: 'white'
+        }
 
-                sx={{backgroundColor:"#99CCE9", 
-
-                width: "5%",
-                height: "50%",
-
-                marginTop:"3vh",
-
-                '&:hover': {
-                  backgroundColor: 'white'
-                }
-
-                }}
-                />
-
-                <p style={{color:"white"}}>{cval}</p>
-            </div>
-        </div>     
-    );
+        }}
+        />
+      </div>
+   </div>     
+  );
 };
