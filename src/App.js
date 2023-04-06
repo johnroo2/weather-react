@@ -8,12 +8,12 @@ import MicroModal from 'react-micro-modal';
 function App() {
   const [weather, setWeather] = React.useState(null);
 
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition(position => {
-        retrieve({"lat": position.coords.latitude, "long": position.coords.longitude}).then((result) => {
-        setWeather(convert(result));
-      })})
-    }, []);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      retrieve({"lat": position.coords.latitude, "long": position.coords.longitude}).then((result) => {
+      setWeather(convert(result));
+    })})
+  }, []);
 
   return (
     <>

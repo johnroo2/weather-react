@@ -27,6 +27,7 @@ export default function LocationSearch({setWeather}){
           }
           alert("Entry not found");
         }
+        
         return cval;
     }
 
