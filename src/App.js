@@ -7,7 +7,13 @@ import {convert} from "./processes/weather-convert";
 function App() {
   const [weather, setWeather] = React.useState(null);
 
-  React.useEffect(() => {retrieve({lat:42.9849, long:-81.2453}).then((result) => {
+  React.useEffect(() => {retrieve(
+    
+    navigator.geolocation.getCurrentPosition(position => {
+      return {lat: position.coords.latitude, long: position.coords.longitude}
+    })
+
+    ).then((result) => {
     setWeather(convert(result));
   })}, []);
 
