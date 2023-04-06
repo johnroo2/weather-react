@@ -26,17 +26,6 @@ export default function LocationSearch({setWeather}){
             }
           }
         }
-
-        if(cval === "waterloo"){
-            retrieve({lat:43.464256, long:-80.520409}).then((result) => {
-                setWeather(convert(result));
-            })
-        }
-        if(cval === "london"){
-            retrieve({lat:42.9849, long:-81.2453}).then((result) => {
-                setWeather(convert(result));
-            })
-        }
         return cval;
     }
 
