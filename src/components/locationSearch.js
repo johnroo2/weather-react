@@ -1,5 +1,5 @@
 import React from 'react';
-import {useRef, Component} from 'react'
+import {useRef} from 'react'
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./../App.css";
@@ -22,9 +22,10 @@ export default function LocationSearch({setWeather}){
               retrieve({lat:cities[i].lat, long:cities[i].lng}).then((result) => {
                 setWeather(convert(result));
               })
-              break;
+              return cval;
             }
           }
+          alert("Entry not found");
         }
         return cval;
     }
@@ -35,7 +36,7 @@ export default function LocationSearch({setWeather}){
                 <TextField
                 shrink="false"
                 id="outlined-basic"
-                variant="outlined" 
+                variant="standard"
                 inputRef={valueRef}
                 InputLabelProps={{
                     style: { color: "white", fontFamily: "Jost", fontWeight: "lighter"},
@@ -54,10 +55,12 @@ export default function LocationSearch({setWeather}){
                     "& .MuiOutlinedInput-root": {
                         "& > fieldset": {
                             borderColor: "white",
-                        },
-                        "&.Mui-focused fieldset": {
+                    },
+                    
+                    "&.Mui-focused fieldset": {
                             borderColor: "white",
-                        }             
+                    }   
+
                     },
                     "& .MuiOutlinedInput-root:hover": {
                         "& > fieldset": {
@@ -74,23 +77,26 @@ export default function LocationSearch({setWeather}){
                 onClick={sendValue}
 
                 variant="contained"
+                size="small"
+
                 startIcon={<img src={require("./../imgs/searchIcon.png")} 
-                style={{width:"38px",
-                    height:"38px",
+                style={{width:"25px",
+                    height:"25px",
                     marginLeft:"12px"}}
                 alt="search"/>}
 
                 sx={{backgroundColor:"#99CCE9", 
-                minWidth:"50px", 
-                minHeight:"50px",
-                maxWidth:"50px", 
-                maxHeight:"50px",
+
+                width: "5%",
+                height: "50%",
 
                 marginTop:"3vh",
 
                 '&:hover': {
-                    backgroundColor: 'white'
-                }}}
+                  backgroundColor: 'white'
+                }
+
+                }}
                 />
 
                 <p style={{color:"white"}}>{cval}</p>

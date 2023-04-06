@@ -3,6 +3,7 @@ import "./App.css";
 import LocationSearch from "./components/locationSearch";
 import {retrieve} from "./processes/weather-retrieve";
 import {convert} from "./processes/weather-convert";
+import MicroModal from 'react-micro-modal';
 
 function App() {
   const [weather, setWeather] = React.useState(null);
@@ -19,6 +20,9 @@ function App() {
 
   return (
     <>
+      <MicroModal>
+      {(close) => <div>Entry Not Found<button onClick={close} style={{marginLeft: "10px"}}>Ok</button></div>}
+      </MicroModal>
       <div>
         <LocationSearch setWeather={setWeather}/>
       </div>
