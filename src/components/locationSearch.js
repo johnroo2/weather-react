@@ -18,44 +18,37 @@ export default function LocationSearch({setWeather}){
 
         if (cval !== undefined || cval !== null || cval !== "") {
 
-          let name = "";
-          let code = "";
-
-          let doubleSearch = false;
+          let city = ""; let country = "";
 
           if (cval.toString().indexOf(",") !== -1) {
             let inputArray = cval.toString().split(",");
-
-            name = inputArray[0].trim();
-            code = inputArray[1].trim();
-
-            doubleSearch = true;
-
-          } else {
-            name = cval;
+            city = inputArray[0].trim();
+            country = inputArray[1].trim();
+          } 
+          else {
+            city = cval;
           }
 
           for (let i = 0; i < cities.length; i++) {
-            if (name.toString().toLowerCase() === cities[i].name.toLowerCase()) {
-                if (doubleSearch) {
-                  if (code.toString().toLowerCase() === cities[i].country.toLowerCase()) {
+            if (city.toString().toLowerCase() === cities[i].name.toLowerCase()) {
+                if (country) {
+                  if (country.toString().toLowerCase() === cities[i].country.toLowerCase()) {
                     retrieve({lat:cities[i].lat, long:cities[i].lng}).then((result) => {
                       setWeather(convert(result));
                     })
-                    return cval;
+                    return;
                   }
                 } else {
                   retrieve({lat:cities[i].lat, long:cities[i].lng}).then((result) => {
                     setWeather(convert(result));
                   })
                 }
-              if (!doubleSearch) return cval;
+                if(!country) return;
             }
           }
           alert("Entry not found");
         }
-
-        return cval;
+        return;
     }
 
     return(
