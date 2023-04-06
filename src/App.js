@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import LocationSearch from "./components/locationSearch";
 import {retrieve} from "./processes/weather-retrieve";
@@ -8,15 +8,12 @@ import MicroModal from 'react-micro-modal';
 function App() {
   const [weather, setWeather] = React.useState(null);
 
-  React.useEffect(() => {retrieve(
-    
-    navigator.geolocation.getCurrentPosition(position => {
-      return {lat: position.coords.latitude, long: position.coords.longitude}
-    })
-
-    ).then((result) => {
-    setWeather(convert(result));
-  })}, []);
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(position => {
+        retrieve({"lat": position.coords.latitude, "long": position.coords.longitude}).then((result) => {
+        setWeather(convert(result));
+      })})
+    }, []);
 
   return (
     <>
