@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css?family=Jost);
+
+.jost{
+  font-family: "Jost";
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: 100%;
+}
+
+p{
+  margin-block-start: 0;
+  margin-block-end: 0;
+} 
+
+.top{
+  display:flex;
+  flex-direction: column;
+  gap: 0px;
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  width:480px;
+}
+
+.subcontainer{
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-start;
+}
+
+.para-white { 
+  font-size: 1.2em;
+  color: white;
+  flex:1
+}
+
+.para-blue{
+  font-size: 1.2em;
+  color: #99CCE9;
+  flex:1;
+}
+
+.header{
+  font-size: 3.5em;
+  color: #99CCE9;
+}
+
+.weather-main{
+  font-size: 7em;
+  color: #99CCE9;
+  font-weight:bolder;
+  flex:14;
+}
+
+.weather-sub{
+  font-size: 5em;
+  color: white;
+  flex:9;
+  margin-bottom: 2%;
+}
+
+.weather-center{
+  display:flex;
+  align-items:flex-end;
+  flex-direction:row;
+  width:425px;
+}
+
+.weather-img{
+  flex:10;
+  width:125px;
+  height:125px;
+  margin-bottom:35px;
+}
+
+.feelslike{
+  display:flex;
+  flex-direction:column;
+  flex:5;
+  margin-bottom:40px; /*man what do i do here*/
+}
+
+.App-header{
+  background-color: #151924;
+  margin-left: 3.5%;
+  margin-top: 2%;
+}
+
+body{
+  margin: 0;
+  /*background-color: #37405D;*/
+  background-color: #151924;
+}
+
+.top-container {
+  margin: 0;
+  padding: 0;
+  width: 100%; /*why doesn't 100 work on iPhone SE?*/
+  height: 12vh;
+  background-color: #37405DB0;
+} 
+
+.top-subcontainer{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  margin-left: 3.5%;
+  gap: 0.8%;
+}
+
+
+
+
