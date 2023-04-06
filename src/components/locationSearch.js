@@ -38,6 +38,15 @@ export default function LocationSearch({setWeather}){
                 id="outlined-basic"
                 variant="standard"
                 inputRef={valueRef}
+
+                onKeyDown={(ev) => {
+                  console.log(`Pressed keyCode ${ev.key}`);
+                  if (ev.key === 'Enter') {
+                    sendValue();
+                    ev.preventDefault();
+                  }
+                }}
+
                 InputLabelProps={{
                     style: { color: "white", fontFamily: "Jost", fontWeight: "lighter"},
                     }}
