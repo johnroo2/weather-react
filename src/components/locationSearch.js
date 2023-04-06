@@ -17,17 +17,44 @@ export default function LocationSearch({setWeather}){
         cval = valueRef.current.value;
 
         if (cval !== undefined || cval !== null || cval !== "") {
+
+          let name = "";
+          let code = "";
+
+          let doubleSearch = false;
+
+          if (cval.toString().indexOf(",") !== -1) {
+            let inputArray = cval.toString().split(",");
+
+            name = inputArray[0].trim();
+            code = inputArray[1].trim();
+
+            doubleSearch = true;
+
+          } else {
+            name = cval;
+          }
+
           for (let i = 0; i < cities.length; i++) {
-            if (cval.toString().toLowerCase() === cities[i].name.toLowerCase()) {
-              retrieve({lat:cities[i].lat, long:cities[i].lng}).then((result) => {
-                setWeather(convert(result));
-              })
-              return cval;
+            if (name.toString().toLowerCase() === cities[i].name.toLowerCase()) {
+                if (doubleSearch) {
+                  if (code.toString().toLowerCase() === cities[i].country.toLowerCase()) {
+                    retrieve({lat:cities[i].lat, long:cities[i].lng}).then((result) => {
+                      setWeather(convert(result));
+                    })
+                    return cval;
+                  }
+                } else {
+                  retrieve({lat:cities[i].lat, long:cities[i].lng}).then((result) => {
+                    setWeather(convert(result));
+                  })
+                }
+              if (!doubleSearch) return cval;
             }
           }
           alert("Entry not found");
         }
-        
+
         return cval;
     }
 
