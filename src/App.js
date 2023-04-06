@@ -31,7 +31,7 @@ function App() {
           <div className= "jost">
           {weather &&
             <>
-            <p className="header"><b>{weather.loc}</b></p>
+            <p className="header"><b>{weather.loc}, {weather.country}</b></p>
             <p className="para-white">Retrieved on {weather.retrieved}</p>
             <div className="weather-center">
               <p className="weather-main"><b>{weather.temp}</b></p>

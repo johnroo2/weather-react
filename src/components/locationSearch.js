@@ -58,7 +58,9 @@ export default function LocationSearch({setWeather}){
                     },
                     
                     "&.Mui-focused fieldset": {
-                            borderColor: "white",
+                      "& > fieldset": {
+                        color: "white",
+                      }
                     }   
 
                     },

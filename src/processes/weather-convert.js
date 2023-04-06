@@ -29,6 +29,7 @@ export function convert(data){
         weather = {
         loading: false,
         loc: !data.name ? "Unknown" : data.name,
+        country: !data.sys.country ? "??" : data.sys.country,
         retrieved: !data.dt ? "Unknown" : dateProcess(data.dt, true),
         temp: !data.main.temp ? "Unknown" : tempMod(data.main.temp, 0),
         temp_fl: !data.main.feels_like ? "Unknown" : tempMod(data.main.feels_like, 0),
