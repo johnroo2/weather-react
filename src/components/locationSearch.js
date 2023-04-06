@@ -40,7 +40,6 @@ export default function LocationSearch({setWeather}){
                 inputRef={valueRef}
 
                 onKeyDown={(ev) => {
-                  console.log(`Pressed keyCode ${ev.key}`);
                   if (ev.key === 'Enter') {
                     sendValue();
                     ev.preventDefault();
