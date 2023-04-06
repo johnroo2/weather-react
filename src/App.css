@@ -69,6 +69,7 @@ p{
   flex:9;
   margin-bottom: 2%;
   font-weight: bolder;
+  margin-left: 4%;
 }
 
 .weather-center{
@@ -84,6 +85,7 @@ p{
   width:125px;
   height:125px;
   margin-bottom:35px;
+  margin-left: 7%;
 }
 
 .feelslike{

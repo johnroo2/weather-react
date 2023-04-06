@@ -14,7 +14,6 @@ function App() {
       setWeather(convert(result));
     })})
   }, []);
-
   return (
     <>
       <MicroModal>
@@ -37,7 +36,7 @@ function App() {
                 <p className="para-white"><i>Like</i></p>
               </div>
               <p className="weather-sub">{weather.temp_fl}</p>
-              <img className="weather-img" alt="silly" src={require("./imgs/yikes.png")}></img>
+              <img alt="weather" src= {weather.image} className="weather-img"/>
             </div>
             <p className="para-white">{weather.wtype}</p>
             <p className="para-white"><br></br></p>
