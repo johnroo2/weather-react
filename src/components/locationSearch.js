@@ -117,7 +117,7 @@ export default function LocationSearch({setWeather}){
         width: "5%",
         height: "50%",
 
-        marginTop:"3vh",
+        marginTop:"4.5vh",
 
         '&:hover': {
           backgroundColor: 'white'
